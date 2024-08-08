@@ -1,113 +1,108 @@
 import Image from "next/image";
+import Inter, { Londrina_Sketch } from "next/font/google"
 
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+export default function Main() {
+  return<>
+    <Navbar/>
+    <Pembelian/>
+  </>
+}
+
+function Login() {
+  return(
+    <div className="h-screen w-screen bg-gradient-to-b from-[#2E2A53] to-[#675EB9] justify-center items-center flex">
+      <div className="w-[350px] h-[250px] bg-white rounded-[25px] p-4 drop-shadow-[0px_6px_0px_#000000] justify-center items-center flex flex-col">
+        <div className="justify-start items-start flex flex-col ml-[-124px]">
+          <p className="text-[24px] font-bold text-black tracking-[2px]">MASUK</p>
+          <p className="text-[12px] font-light underline underline-offset-1 text-black mt-[-10px]">Silahkan masuk ke akun anda</p>
+        </div>
+        <input type="text" placeholder="Nama Pengguna" className="w-[300px] h-[35px] text-[16px] font-medium text-black bg-[#ffffff] p-2 border-2 border-black rounded-[15px] mt-6"></input>
+        <input type="password" placeholder="Kata Sandi" className="w-[300px] h-[35px] text-[16px] font-medium text-black bg-[#ffffff] p-2 border-2 border-black rounded-[15px] mt-5"></input>
+        <button className="w-[100px] h-[50px] bg-[#37316F] border-[#2E2A53] border-4 rounded-[15px] mt-6 flex justify-center items-center hover:drop-shadow-[2px_2px_1px_#000000]">
+          <p className="text-[18px] text-white tracking-wide">Masuk</p>
+        </button>
+      </div>
+    </div>
+  )
+}
+
+function Navbar() {
+  return(
+    <nav className="fixed">
+      <div className="h-[50px] w-screen bg-[#37316F] items-center p-3">
+        <button className="h-[30px] w-[130px] bg-[#2E2A53] ml-4 rounded-[10px] items-center justify-center hover:border-white hover:border-2">
+          <p className="text-[16px]">Pembelian</p>
+        </button>
+        <button className="h-[30px] w-[130px] rounded-[10px] ml-2 items-center justify-center hover:border-white hover:border-2">
+          <p className="text-[16px]">Riwayat</p>
+        </button>
+        <button className="h-[30px] w-[130px] rounded-[10px] ml-2 items-center justify-center hover:border-white hover:border-2">
+          <p className="text-[16px]">Stok</p>
+        </button>
+        <button className="h-[30px] w-[130px] rounded-[10px] ml-2 items-center justify-center hover:border-white hover:border-2">
+          <p className="text-[16px]">Registrasi</p>
+        </button>
+        <button className="h-[30px] w-[120px] mr-4 bg-black rounded-[10px] float-end flex flex-row items-center justify-center hover:border-white hover:border-2">
+          <Image src="/images/logout.png" alt="logout" width={20} height={20} />
+          <p className="text-[16px] font-semibold pl-2">Keluar</p>
+        </button>
+      </div>
+    </nav>
+  )
+}
+
+function Pembelian() {
+  return(
+    <div className="h-screen w-screen bg-white py-12 p-1 justify-center items-center flex flex-col">
+      <div className="flex-row flex justify-center">
+        <div className="bg-[#F1F1F1] w-[400px] h-[400px] rounded-[25px] border-[1px] border-black  drop-shadow-[3px_3px_0px_#8A8A8A] mt-8 p-6 flex-col">
+          <h1 className="text-[32px] font-bold text-black border-b-2 border-black m-[-8px]">Pembelian</h1>
+          <div className="flex flex-row items-center w-[370px] 200 mt-12">
+            <p className="text-[18px] w-[150px] text-black font-semibold">Nama Produk</p>
+            <input type="text" name="nama" id="nama" placeholder="Nama Produk" className="h-[30px] w-[200px] rounded-[10px] border-[1px] border-black text-black p-2 text-[16px] font-medium"/>
+          </div>
+          <div className="flex flex-row items-center w-[370px] mt-6">
+            <p className="text-[18px] w-[150px] text-black font-semibold">Harga Satuan</p>
+            <p className="h-[25px] w-[200px] text-[18px] text-black font-semibold">
+              Rp
+            </p>
+          </div>
+          <div className="flex flex-row items-center w-[370px] mt-6">
+            <p className="text-[18px] w-[150px] text-black font-semibold">Jumlah</p>
+            <input type="number" name="nama" id="nama" min={0} placeholder="Jumlah" className="h-[30px] w-[200px] rounded-[10px] border-[1px] border-black text-black p-2 text-[16px]"/>
+          </div>
+          <div className="flex flex-row items-center w-[370px] mt-6">
+            <p className="text-[18px] w-[150px] text-black font-semibold">Harga Total</p>
+            <p className="h-[25px] w-[200px] text-[18px] text-black font-semibold">
+              Rp
+            </p>
+          </div>
+          <button className="w-[350px] h-[35px] bg-[#37316F] border-[#2E2A53] border-4 rounded-[15px] mt-12 flex justify-center items-center hover:drop-shadow-[2px_2px_1px_#000000]">
+            <p className="text-[18px] text-white tracking-wide">Tambahkan</p>
+          </button>
+        </div>
+        <div className="bg-[#F1F1F1] w-[800px] h-[400px] rounded-[25px] border-[1px] border-black drop-shadow-[3px_3px_0px_#8A8A8A] mt-8 p-6 flex-col ml-12">
+          <h1 className="text-[32px] font-bold text-black border-b-2 border-black m-[-8px]">Keranjang</h1>
+          <div className="bg-white w-[750px] h-[280px] rounded-[25px] border-[1px] border-black mt-8"></div>
         </div>
       </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="bg-[#F1F1F1] w-[1250px] h-[100px] rounded-[25px] border-[1px] border-black drop-shadow-[3px_3px_0px_#8A8A8A] flex-row flex justify-around items-center mt-8 p-4">      
+        <div className="items-center flex flex-col w-[180px]">
+          <p className="text-[20px] font-semibold text-black">Total Pembayaran</p>
+          <p className="text-[24px] font-bold text-black">Rp</p>
+        </div>
+        <div className="items-center flex flex-col w-[180px]">
+          <p className="text-[20px] font-semibold text-black">Uang Pembayaran</p>
+          <p className="text-[24px] font-bold text-black">Rp</p>
+        </div>
+        <div className="items-center flex flex-col w-[180px]">
+          <p className="text-[20px] font-semibold text-black">Kembalian</p>
+          <p className="text-[24px] font-bold text-black">Rp</p>
+        </div>
       </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+      <button className="w-[200px] h-[35px] bg-[#37316F] border-[#2E2A53] border-4 rounded-[15px] mx-12 mt-6 flex justify-center items-center hover:drop-shadow-[2px_2px_1px_#000000]">
+        <p className="text-[18px] text-white tracking-wide">Bayar</p>
+      </button>
+    </div>
+  )
 }
